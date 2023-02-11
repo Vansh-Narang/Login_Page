@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home: Login_PageT2());
+        home: Day24Authentication());
   }
 }

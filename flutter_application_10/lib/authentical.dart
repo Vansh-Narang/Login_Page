@@ -11,8 +11,13 @@ class Day24Authentication extends StatefulWidget {
 class _Day24AuthenticationState extends State<Day24Authentication> {
   final _formkey = GlobalKey<FormState>();
   bool isLogin = false;
-  String email = '';   String password = '';
+  String email = '';
+  String password = '';
   String username = '';
+  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +33,7 @@ class _Day24AuthenticationState extends State<Day24Authentication> {
             children: [
               !isLogin
                   ? TextFormField(
+                      controller: _usernameController,
                       key: ValueKey('username'),
                       decoration: InputDecoration(hintText: "Enter Username"),
                       validator: (value) {
@@ -45,6 +51,7 @@ class _Day24AuthenticationState extends State<Day24Authentication> {
                     )
                   : Container(),
               TextFormField(
+                controller: _emailController,
                 key: ValueKey('email'),
                 decoration: InputDecoration(hintText: "Enter Email"),
                 validator: (value) {
@@ -61,6 +68,7 @@ class _Day24AuthenticationState extends State<Day24Authentication> {
                 },
               ),
               TextFormField(
+                controller: _passwordController,
                 obscureText: true,
                 key: ValueKey('password'),
                 decoration: InputDecoration(hintText: "Enter Password"),
@@ -92,7 +100,7 @@ class _Day24AuthenticationState extends State<Day24Authentication> {
                               : signup(email, password);
                         }
                       },
-                      child: isLogin ? Text('Login') : Text('Signup'))),
+                      child: isLogin ? Text('Login') : Text('SignupNow'))),
               SizedBox(
                 height: 10,
               ),
