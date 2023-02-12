@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_10/ForgetPassword.dart';
 import 'package:flutter_application_10/auth.dart';
 
 class Day24Authentication extends StatefulWidget {
@@ -112,7 +113,19 @@ class _Day24AuthenticationState extends State<Day24Authentication> {
                   },
                   child: isLogin
                       ? Text("Don't have an account? Signup")
-                      : Text('Already Signed Up? Login'))
+                      : Text('Already Signed Up? Login')),
+              SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgetPassword(),
+                        ));
+                  },
+                  child: Text("Forgot Password ?"))
             ],
           ),
         ),
